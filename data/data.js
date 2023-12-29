@@ -13,7 +13,7 @@ export const data = {
             title: 'Learn CSS'
         },
     ]
-}
+};
 
 let notifySubscriber = null;
 
@@ -25,8 +25,13 @@ export function subscribe(subscriber) {
 export function addTask() {
     const newTask = {
         id: genId(),
-        title:'---------'
-    }
-    data.tasks.push(newTask)
-    notifySubscriber()
+        title: '---------'
+    };
+    data.tasks.push(newTask);
+    notifySubscriber();
+}
+
+export function deleteTask(taskId) {
+    data.tasks = data.tasks.filter((task) => { return task.id !== taskId });
+    notifySubscriber();
 }
