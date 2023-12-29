@@ -14,3 +14,19 @@ export const data = {
         },
     ]
 }
+
+let notifySubscriber = null;
+
+export function subscribe(subscriber) {
+    notifySubscriber = subscriber;
+    return notifySubscriber;
+}
+
+export function addTask() {
+    const newTask = {
+        id: genId(),
+        title:'---------'
+    }
+    data.tasks.push(newTask)
+    notifySubscriber()
+}
