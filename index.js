@@ -1,8 +1,11 @@
+
 import { data } from "./data/data.js";
 import { Todolist } from "./components/todolist/todolist_component.js";
 
-const todolistElement = Todolist(data);
 
-const rootElement = document.getElementById('root');
+    const todolistElement = Todolist(data);
 
-rootElement.append(todolistElement)
+    const rootElement = document.getElementById('root');
+    rootElement.innerHTML = ''
+
+    rootElement.append(todolistElement)

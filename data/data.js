@@ -1,14 +1,16 @@
-export const data ={
-    id: Number(new Date()),
+import { genId } from "./IdGenerator/genId.js"
+
+export const data = {
+    id: genId(),
     title: 'What to learn',
-    tasks:[
+    tasks: [
         {
-            id: Number(new Date()),
-            title:'Learn HTML'
+            id: genId(),
+            title: 'Learn HTML'
         },
         {
-            id: Number(new Date()),
-            title:'Learn CSS'
+            id: genId(),
+            title: 'Learn CSS'
         },
     ]
 }
