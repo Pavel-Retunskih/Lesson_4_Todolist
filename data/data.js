@@ -1,6 +1,7 @@
 import { genId } from "./IdGenerator/genId.js"
 
 export const data = {
+    UserWantToAddNewTask: false,
     id: genId(),
     title: 'What to learn',
     tasks: [
@@ -22,12 +23,23 @@ export function subscribe(subscriber) {
     return notifySubscriber;
 }
 
-export function addTask() {
+export function openDialogWindow(){
+    data.UserWantToAddNewTask = true;
+    notifySubscriber()
+}
+
+export function closeDialogWindow(){
+    data.UserWantToAddNewTask = false;
+    notifySubscriber()
+}
+
+export function addTask(newTaskText) {
     const newTask = {
         id: genId(),
-        title: '---------'
+        title: newTaskText,
     };
     data.tasks.push(newTask);
+    closeDialogWindow();
     notifySubscriber();
 }
 

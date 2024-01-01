@@ -1,4 +1,4 @@
-import { addTask } from "../../../data/data.js";
+import { openDialogWindow } from "../../../data/data.js";
 
 export function ButtonsPanel() {
     const container = document.createElement('div');
@@ -6,6 +6,6 @@ export function ButtonsPanel() {
 
     addButtonElement.append('+ add');
     container.append(addButtonElement);
-    addButtonElement.addEventListener('click', addTask)
+    addButtonElement.addEventListener('click', openDialogWindow)
     return container;
 }
