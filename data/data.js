@@ -47,3 +47,23 @@ export function deleteTask(taskId) {
     data.tasks = data.tasks.filter((task) => { return task.id !== taskId });
     notifySubscriber();
 }
+
+export function openEditInput(taskId){
+    for (const task of data.tasks) {
+        if(task.id === taskId) task.isWantToEdit = true;
+    }
+    notifySubscriber();
+};
+
+export function closeEditInput(taskId){
+    for (const task of data.tasks) {
+        if(task.id === taskId) task.isWantToEdit = false;
+    }
+    notifySubscriber();
+};
+
+export function saveEditedTask(oldTask, editText){
+    oldTask.title = editText;
+    closeEditInput(oldTask.id)
+    notifySubscriber()
+};
