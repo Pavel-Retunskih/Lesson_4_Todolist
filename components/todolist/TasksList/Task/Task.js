@@ -7,9 +7,9 @@ export function Task(task) {
     const container = document.createElement('li');
     const deleteButtonElement = createDeleteButton(task.id)
 
-    container.addEventListener('dblclick', () => openEditInput(task.id))
+    container.addEventListener('dblclick', () => openEditInput(task))
 
-    task.isWantToEdit ? container.append(editTask(task)) : container.append(task.title, deleteButtonElement);
+    task.editMode.isEdit ? container.append(editTask(task)) : container.append(task.title, deleteButtonElement);
 
     return container;
 }

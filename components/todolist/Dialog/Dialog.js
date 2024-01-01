@@ -22,7 +22,7 @@ export function Dialog(){
         closeDialogWindow()
     })
     
-    if(data.UserWantToAddNewTask){
+    if(data.todolist.addNewTaskDialog.isOpen){
         container.open = true;
     }else container.open = false;
 
@@ -32,5 +32,9 @@ export function Dialog(){
     container.append(saveButton);
     container.append(cancelButton);
 
+    if(data.todolist.addNewTaskDialog.error){
+        inputElement.classList.add('error')
+        inputElement.placeholder = data.todolist.addNewTaskDialog.error
+    }
     return container;
 }

@@ -6,8 +6,8 @@ import { TasksList } from "./TasksList/TasksList.js";
 export function Todolist(data) {
     const container = document.createElement('div');
 
-    const headerElement = Header(data.title);
-    const tasksElement = TasksList(data.tasks);
+    const headerElement = Header(data.todolist.title);
+    const tasksElement = TasksList(data.todolist.tasks);
     const bauttonsElement = ButtonsPanel()
     const dialogElement = Dialog();
 
